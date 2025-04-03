@@ -1,4 +1,4 @@
-# AES AIMLA Challenge 2025
+# AES AIMLA Challenge 2025 Baseline System
 ## Query-by-Vocal Imitation Challenge
 
 *Query by Vocal Imitation* (QVIM) enables users to search a database of sounds via a vocal imitation of the desired sound.
@@ -36,7 +36,7 @@ Prerequisites
 1. Clone this repository.
 
 ```
-git clone TODO
+git clone https://github.com/qvim-aes/qvim-baseline.git
 ```
 
 2. Create and activate a conda environment with Python 3.10:
@@ -75,12 +75,12 @@ python src.qvim_mn_baseline.ex_qvim.py
 | random      | 0.0444            | ~0.337                |
 | MN baseline | 0.2616            | 0.6428                |
 
-- The Mean Reciprocal Rank (MRR) is the metric used for ranking submitted systems before the subjective evaluation. The MRR gives the average inverse rank $\frac{1}{r_i}$ of the reference sound $i$ averaged over all queries $Q$:
+- The Mean Reciprocal Rank (MRR) is the metric used to select submitted systems for the subjective evaluation. The MRR gives the average inverse rank $\frac{1}{r_i}$ of the reference sound $i$ averaged over all imitations $Q$:
 
-$$\frac{1}{\lvert Q \rvert} \sum_{i=1}^{\lvert Q \rvert} \frac{1}{r_i}$$
+$$\textrm{MRR} = \frac{1}{\lvert Q \rvert} \sum_{i=1}^{\lvert Q \rvert} \frac{1}{r_i}$$
 
-- The [Normalized Discounted Cumulative Gain](https://en.wikipedia.org/wiki/Discounted_cumulative_gain) (NDCG) measures the systems ability to retrieve sounds of the same category. 
-The NDCG for measuring the category-wise retrieval performance will *not* be used for ranking.
+- The [Normalized Discounted Cumulative Gain](https://en.wikipedia.org/wiki/Discounted_cumulative_gain) (NDCG) measures the systems' ability to retrieve sounds of the imitated category (i.e., how good is the system at retrieving an arbitrary dog bark if a specific dog bark was imitated). 
+The NDCG will *not* be used for ranking.
 
 ## Contact
 For questions or inquiries, please contact [paul.primus@jku.at](mailto:paul.primus@jku.at).
