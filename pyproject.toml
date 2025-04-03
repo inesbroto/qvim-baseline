@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qvim-mn-baseline"
+version = "0.1.0"
+description = "Baseline system for the AES AIMLA AVIM Challenge"
+readme = "README.md"
+authors = [{ name = "Paul Primus", email = "paul.primus@jku.at" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools]
+packages = ["qvim_mn_baseline", "qvim_2dft_baseline"]
+package-dir = { "" = "src" }
+
+[tool.setuptools.dynamic]
+dependencies = {}
