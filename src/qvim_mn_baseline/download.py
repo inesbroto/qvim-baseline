@@ -2,7 +2,7 @@ import os
 import requests
 from tqdm import tqdm
 import subprocess
-
+import sys
 
 
 def download_qvim_dev_dataset(data_dir: str = "data"):
@@ -75,6 +75,10 @@ def extract_zip(zip_file: str, extract_to_dir: str):
     """Extracts a ZIP file using 7zip from Conda."""
 
     try:
-        subprocess.run(["7z", "x", zip_file, f"-o{extract_to_dir}"])
+        if sys.platform == "darwin":
+            # absolute path to make sure we're using system unzip, not conda
+            subprocess.run(["/usr/bin/unzip", zip_file, "-d", extract_to_dir], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        else:
+            subprocess.run(["7z", "x", zip_file, f"-o{extract_to_dir}"])
     except subprocess.CalledProcessError as e:
         print(f"Error extracting {zip_file}: {e}")
