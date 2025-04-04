@@ -70,10 +70,12 @@ python src.qvim_mn_baseline.ex_qvim.py
 
 ## Evaluation Results
 
-| Model Name  | MRR (exact match) | NDCG (category match) |
-|-------------|-------------------|-----------------------|
-| random      | 0.0444            | ~0.337                |
-| MN baseline | 0.2616            | 0.6428                |
+
+| Model Name   | MRR (exact match) | NDCG (category match) |
+|--------------|-------------------|-----------------------|
+| random       | 0.0444            | ~0.337                |
+| 2DFT         | 0.1262            | 0.4793                |
+| MN baseline  | 0.2616            | 0.6428                |
 
 - The Mean Reciprocal Rank (MRR) is the metric used to select submitted systems for the subjective evaluation. The MRR gives the average inverse rank $\frac{1}{r_i}$ of the reference sound $i$ averaged over all imitations $Q$:
 
